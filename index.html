@@ -1,0 +1,3655 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>AL-Saeed Academy | Online Quran Teachers & Students</title>
+
+<meta name="description"
+content="AL-Saeed Academy connects qualified Online Quran Teachers with students worldwide. Learn Quran online with experienced teachers.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+    :root{
+    --primary:#071d1a;
+    --secondary:#0c302b;
+    --green:#0fa878;
+    --green-light:#21d7a1;
+    --gold:#d8ad55;
+    --gold-light:#f4d58b;
+    --white:#fff;
+    --text:#dbe9e5;
+    --muted:#9bb2ad;
+    --card:rgba(255,255,255,.055);
+    --border:rgba(255,255,255,.10);
+    --shadow:0 25px 70px rgba(0,0,0,.28);
+}
+
+/* =========================
+   RESET
+========================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+html{
+    overflow-x:hidden;
+}
+
+body{
+    width:100%;
+    min-height:100vh;
+    font-family:"Inter",sans-serif;
+    background:
+        radial-gradient(
+            circle at 10% 10%,
+            rgba(15,168,120,.15),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 30%,
+            rgba(216,173,85,.10),
+            transparent 30%
+        ),
+        var(--primary);
+    color:var(--white);
+    overflow-x:hidden;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+img{
+    max-width:100%;
+    height:auto;
+    display:block;
+}
+
+button,
+input,
+textarea,
+select{
+    font:inherit;
+}
+
+.container{
+    width:min(1180px,92%);
+    margin:auto;
+}
+
+section{
+    width:100%;
+    padding:100px 0;
+    position:relative;
+}
+
+
+/* =========================
+   LOADER
+========================= */
+
+#loader{
+    position:fixed;
+    inset:0;
+    z-index:99999;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#041310;
+
+    transition:.6s;
+}
+
+.loader-box{
+    text-align:center;
+}
+
+.loader-logo{
+    width:75px;
+    height:75px;
+
+    border:2px solid var(--gold);
+    border-radius:50%;
+
+    display:grid;
+    place-items:center;
+
+    margin:auto;
+
+    font-size:25px;
+    color:var(--gold);
+
+    animation:loaderSpin 2s linear infinite;
+}
+
+.loader-box p{
+    margin-top:18px;
+    color:var(--muted);
+}
+
+@keyframes loaderSpin{
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar{
+    position:fixed;
+    top:0;
+    left:0;
+
+    width:100%;
+
+    z-index:5000;
+
+    padding:18px 0;
+
+    background:rgba(4,18,15,.65);
+
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+    transition:.35s;
+}
+
+.navbar.scrolled{
+    padding:11px 0;
+
+    background:rgba(4,18,15,.95);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.25);
+}
+
+.nav-container{
+    width:min(1200px,92%);
+    margin:auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+}
+
+
+/* LOGO */
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    min-width:0;
+}
+
+.logo-icon{
+    width:45px;
+    height:45px;
+
+    flex-shrink:0;
+
+    border-radius:13px;
+
+    background:
+        linear-gradient(
+            135deg,
+            var(--gold),
+            #a47726
+        );
+
+    display:grid;
+    place-items:center;
+
+    color:#071d1a;
+
+    font-weight:900;
+    font-size:21px;
+
+    box-shadow:
+        0 8px 30px rgba(216,173,85,.25);
+}
+
+.logo-text{
+    min-width:0;
+}
+
+.logo-text strong{
+    display:block;
+
+    font-size:19px;
+    line-height:1.2;
+
+    white-space:nowrap;
+}
+
+.logo-text span{
+    display:block;
+
+    color:var(--gold-light);
+
+    font-family:Amiri,serif;
+
+    font-size:14px;
+
+    white-space:nowrap;
+}
+
+
+/* NAV LINKS */
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    justify-content:flex-end;
+
+    gap:5px;
+
+    list-style:none;
+}
+
+.nav-links a{
+    display:block;
+
+    padding:10px 13px;
+
+    color:rgba(255,255,255,.75);
+
+    font-size:14px;
+    font-weight:600;
+
+    border-radius:10px;
+
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:white;
+
+    background:rgba(255,255,255,.06);
+}
+
+.nav-btn{
+    background:
+        linear-gradient(
+            135deg,
+            var(--green),
+            #087f61
+        );
+
+    color:white!important;
+
+    padding:12px 18px!important;
+
+    border-radius:12px!important;
+
+    box-shadow:
+        0 8px 25px rgba(15,168,120,.20);
+}
+
+
+/* MOBILE MENU BUTTON */
+
+.menu-btn{
+    display:none;
+
+    width:44px;
+    height:44px;
+
+    border:1px solid var(--border);
+
+    background:rgba(255,255,255,.04);
+
+    color:white;
+
+    border-radius:11px;
+
+    font-size:23px;
+
+    cursor:pointer;
+
+    flex-shrink:0;
+}
+
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+    width:100%;
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+
+    padding-top:130px;
+
+    overflow:hidden;
+}
+
+.hero-grid{
+    width:100%;
+
+    display:grid;
+
+    grid-template-columns:
+        minmax(0,1.1fr)
+        minmax(0,.9fr);
+
+    gap:60px;
+
+    align-items:center;
+}
+
+
+/* HERO CONTENT */
+
+.hero-content{
+    min-width:0;
+}
+
+.badge{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:9px;
+
+    border:1px solid rgba(216,173,85,.25);
+
+    background:rgba(216,173,85,.07);
+
+    color:var(--gold-light);
+
+    padding:9px 15px;
+
+    border-radius:50px;
+
+    font-size:13px;
+    font-weight:700;
+
+    margin-bottom:22px;
+}
+
+.badge i{
+    width:8px;
+    height:8px;
+
+    flex-shrink:0;
+
+    border-radius:50%;
+
+    background:#39e0ad;
+
+    box-shadow:
+        0 0 15px #39e0ad;
+}
+
+.hero-urdu{
+    font-family:Amiri,serif;
+
+    font-size:28px;
+
+    line-height:1.4;
+
+    color:#e9d49b;
+
+    margin-bottom:18px;
+}
+
+.hero h1{
+    font-size:clamp(42px,6vw,72px);
+
+    line-height:1.05;
+
+    letter-spacing:-2px;
+
+    margin-bottom:24px;
+}
+
+.hero h1 span{
+    background:
+        linear-gradient(
+            90deg,
+            var(--gold),
+            #fff0bc,
+            var(--gold)
+        );
+
+    -webkit-background-clip:text;
+    background-clip:text;
+
+    color:transparent;
+}
+
+.hero p{
+    max-width:650px;
+
+    color:var(--muted);
+
+    line-height:1.9;
+
+    font-size:16px;
+}
+
+.hero-buttons{
+    display:flex;
+
+    align-items:center;
+
+    gap:13px;
+
+    margin-top:32px;
+
+    flex-wrap:wrap;
+}
+
+.btn{
+    border:0;
+
+    cursor:pointer;
+
+    padding:15px 22px;
+
+    border-radius:13px;
+
+    font-weight:700;
+
+    font-size:14px;
+
+    display:inline-flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:9px;
+
+    transition:.3s;
+}
+
+.btn-primary{
+    background:
+        linear-gradient(
+            135deg,
+            var(--green-light),
+            #07825f
+        );
+
+    color:#03251d;
+
+    box-shadow:
+        0 15px 35px rgba(15,168,120,.25);
+}
+
+.btn-primary:hover{
+    transform:translateY(-4px);
+}
+
+.btn-outline{
+    border:1px solid var(--border);
+
+    background:rgba(255,255,255,.04);
+
+    color:white;
+}
+
+.btn-outline:hover{
+    background:rgba(255,255,255,.08);
+
+    transform:translateY(-3px);
+}
+
+
+/* =========================
+   HERO QURAN ANIMATION
+========================= */
+
+.hero-visual{
+    position:relative;
+
+    width:100%;
+
+    min-height:520px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+}
+
+
+/* QURAN CARD */
+
+.quran-card{
+    width:340px;
+    height:430px;
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+
+    border:1px solid rgba(216,173,85,.35);
+
+    border-radius:30px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(216,173,85,.12),
+            rgba(255,255,255,.025)
+        ),
+        rgba(255,255,255,.04);
+
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+
+    box-shadow:
+        0 25px 70px rgba(0,0,0,.28);
+
+    transform:rotate(3deg);
+
+    animation:
+        floatQuran 5s ease-in-out infinite;
+
+    overflow:hidden;
+
+    isolation:isolate;
+}
+
+
+/* INNER BORDER */
+
+.quran-card::before{
+    content:"";
+
+    position:absolute;
+
+    inset:18px;
+
+    border:1px solid rgba(216,173,85,.25);
+
+    border-radius:20px;
+
+    pointer-events:none;
+
+    z-index:0;
+}
+
+
+/* DECORATIVE LIGHT */
+
+.quran-card::after{
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(216,173,85,.12),
+            transparent 70%
+        );
+
+    top:-70px;
+    right:-70px;
+
+    pointer-events:none;
+
+    z-index:0;
+}
+
+
+/* QURAN CONTENT */
+
+.quran-content{
+    position:relative;
+
+    z-index:5;
+
+    width:100%;
+
+    padding:30px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+    justify-content:center;
+
+    text-align:center;
+}
+
+
+/* ARABIC SYMBOL */
+
+.quran-symbol{
+    width:105px;
+    height:105px;
+
+    flex-shrink:0;
+
+    border-radius:50%;
+
+    border:2px solid var(--gold);
+
+    display:grid;
+
+    place-items:center;
+
+    font-family:"Amiri",serif;
+
+    font-size:58px;
+
+    line-height:1;
+
+    color:var(--gold-light);
+
+    background:rgba(0,0,0,.12);
+
+    box-shadow:
+        0 0 35px rgba(216,173,85,.15);
+
+    margin-bottom:20px;
+}
+
+
+/* AL QURAN TEXT */
+
+.quran-content h3{
+    position:relative;
+
+    z-index:6;
+
+    font-family:"Amiri",serif;
+
+    font-size:42px;
+
+    line-height:1.2;
+
+    margin:0 0 8px;
+
+    color:#fff;
+
+    white-space:nowrap;
+}
+
+.quran-content p{
+    position:relative;
+
+    z-index:6;
+
+    margin:0;
+
+    color:#9bb2ad;
+
+    font-size:13px;
+
+    line-height:1.6;
+
+    white-space:nowrap;
+}
+
+
+/* QURAN FLOAT */
+
+@keyframes floatQuran{
+
+    0%,100%{
+        transform:
+            translateY(0)
+            rotate(3deg);
+    }
+
+    50%{
+        transform:
+            translateY(-14px)
+            rotate(1deg);
+    }
+}
+
+
+/* FLOATING CARDS */
+
+.floating-card{
+    position:absolute;
+
+    padding:15px 18px;
+
+    background:rgba(8,35,30,.92);
+
+    border:1px solid var(--border);
+
+    backdrop-filter:blur(15px);
+    -webkit-backdrop-filter:blur(15px);
+
+    border-radius:15px;
+
+    box-shadow:var(--shadow);
+
+    z-index:20;
+}
+
+.teacher-float{
+    left:0;
+    top:100px;
+}
+
+.student-float{
+    right:0;
+    bottom:100px;
+}
+
+.float-number{
+    color:var(--green-light);
+
+    font-weight:800;
+
+    font-size:19px;
+}
+
+.float-text{
+    color:var(--muted);
+
+    font-size:11px;
+}
+
+
+/* =========================
+   SECTION HEADER
+========================= */
+
+.section-head{
+    width:100%;
+
+    text-align:center;
+
+    max-width:700px;
+
+    margin:0 auto 55px;
+}
+
+.section-head .small{
+    color:var(--gold);
+
+    text-transform:uppercase;
+
+    letter-spacing:2px;
+
+    font-size:12px;
+
+    font-weight:800;
+}
+
+.section-head h2{
+    font-size:clamp(32px,4vw,47px);
+
+    line-height:1.15;
+
+    margin:12px 0 15px;
+}
+
+.section-head p{
+    color:var(--muted);
+
+    line-height:1.8;
+}
+
+
+/* =========================
+   CHOICE
+========================= */
+
+.choice-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
+    gap:25px;
+}
+
+.choice-card{
+    min-width:0;
+
+    padding:38px;
+
+    border:1px solid var(--border);
+
+    border-radius:25px;
+
+    background:var(--card);
+
+    position:relative;
+
+    overflow:hidden;
+
+    transition:.4s;
+}
+
+.choice-card:hover{
+    transform:translateY(-8px);
+
+    border-color:
+        rgba(15,168,120,.35);
+
+    box-shadow:var(--shadow);
+}
+
+.choice-card::after{
+    content:"";
+
+    position:absolute;
+
+    width:180px;
+    height:180px;
+
+    border-radius:50%;
+
+    background:
+        rgba(15,168,120,.07);
+
+    right:-80px;
+    top:-80px;
+}
+
+.choice-icon{
+    width:60px;
+    height:60px;
+
+    border-radius:17px;
+
+    display:grid;
+    place-items:center;
+
+    font-size:27px;
+
+    background:
+        rgba(15,168,120,.12);
+
+    border:
+        1px solid rgba(15,168,120,.2);
+
+    margin-bottom:25px;
+}
+
+.choice-card h3{
+    font-size:24px;
+
+    margin-bottom:12px;
+}
+
+.choice-card p{
+    color:var(--muted);
+
+    line-height:1.8;
+
+    font-size:14px;
+}
+
+.choice-list{
+    list-style:none;
+
+    margin:25px 0;
+}
+
+.choice-list li{
+    color:#c5d6d2;
+
+    margin:12px 0;
+
+    font-size:14px;
+}
+
+.choice-list li::before{
+    content:"✓";
+
+    color:var(--green-light);
+
+    margin-right:10px;
+}
+
+
+/* =========================
+   COURSES
+========================= */
+
+.courses{
+    background:
+        rgba(255,255,255,.015);
+}
+
+.course-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,minmax(0,1fr));
+
+    gap:18px;
+}
+
+.course{
+    min-width:0;
+
+    padding:28px 22px;
+
+    border:1px solid var(--border);
+
+    border-radius:20px;
+
+    background:
+        rgba(255,255,255,.035);
+
+    transition:.35s;
+}
+
+.course:hover{
+    transform:translateY(-7px);
+
+    background:
+        rgba(255,255,255,.065);
+}
+
+.course-icon{
+    font-size:32px;
+
+    margin-bottom:20px;
+}
+
+.course h3{
+    margin-bottom:10px;
+
+    font-size:18px;
+}
+
+.course p{
+    color:var(--muted);
+
+    font-size:13px;
+
+    line-height:1.7;
+}
+
+
+/* =========================
+   PROCESS
+========================= */
+
+.process-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
+    gap:25px;
+}
+
+.process{
+    text-align:center;
+
+    padding:25px;
+}
+
+.process-num{
+    width:65px;
+    height:65px;
+
+    margin:0 auto 22px;
+
+    border-radius:50%;
+
+    border:
+        1px solid rgba(216,173,85,.35);
+
+    display:grid;
+
+    place-items:center;
+
+    color:var(--gold-light);
+
+    font-weight:800;
+
+    font-size:20px;
+}
+
+.process h3{
+    margin-bottom:10px;
+}
+
+.process p{
+    color:var(--muted);
+
+    line-height:1.7;
+
+    font-size:14px;
+}
+
+
+/* =========================
+   TEACHERS
+========================= */
+
+.teachers{
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(15,168,120,.08),
+            transparent 35%
+        ),
+        rgba(255,255,255,.015);
+}
+
+.teacher-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
+    gap:22px;
+}
+
+
+/* =========================
+   TEACHER CARD
+========================= */
+
+.teacher{
+    min-width:0;
+
+    border:1px solid var(--border);
+
+    border-radius:23px;
+
+    overflow:hidden;
+
+    background:
+        rgba(255,255,255,.04);
+
+    transition:
+        transform .4s ease,
+        box-shadow .4s ease,
+        border-color .4s ease;
+}
+
+.teacher:hover{
+    transform:translateY(-9px);
+
+    border-color:
+        rgba(216,173,85,.35);
+
+    box-shadow:
+        0 25px 60px rgba(0,0,0,.35);
+}
+
+/* =========================
+   TEACHER IMAGE AREA
+========================= */
+
+.teacher-top{
+    width:100%;
+    height:300px;
+
+    position:relative;
+    overflow:hidden;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:#071d1a;
+}
+
+
+/* =========================
+   BLURRED FULL BACKGROUND
+========================= */
+
+.teacher-top::before{
+    content:"";
+
+    position:absolute;
+    inset:-30px;
+
+    background-image:var(--teacher-bg);
+
+    background-size:cover;
+    background-position:center;
+
+    filter:blur(20px);
+
+    transform:scale(1.15);
+
+    opacity:.85;
+
+    z-index:0;
+}
+
+
+/* =========================
+   DARK + GOLD OVERLAY
+========================= */
+
+.teacher-top::after{
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(3,16,13,.10),
+            rgba(3,16,13,.35)
+        );
+
+    z-index:1;
+
+    pointer-events:none;
+}
+
+
+/* =========================
+   ORIGINAL IMAGE
+========================= */
+
+.teacher-top img{
+    position:relative;
+
+    z-index:2;
+
+    width:auto;
+    height:auto;
+
+    max-width:100%;
+    max-height:100%;
+
+    object-fit:contain;
+
+    object-position:center;
+
+    display:block;
+
+    transition:
+        transform .5s ease,
+        filter .5s ease;
+
+    filter:
+        brightness(1.05)
+        saturate(1.05);
+
+    box-shadow:
+        0 10px 35px rgba(0,0,0,.25);
+}
+
+
+/* =========================
+   HOVER
+========================= */
+
+.teacher:hover .teacher-top img{
+    transform:scale(1.04);
+
+    filter:
+        brightness(1.10)
+        saturate(1.10);
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media(max-width:900px){
+
+    .teacher-top{
+        height:270px;
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    .teacher-top{
+        height:320px;
+    }
+
+    .teacher-top img{
+        max-width:100%;
+        max-height:100%;
+    }
+
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media(max-width:380px){
+
+    .teacher-top{
+        height:290px;
+    }
+
+}
+.teacher:hover .teacher-top img{
+    transform:scale(1.03);
+}
+
+
+/* Mobile */
+@media(max-width:600px){
+
+    .teacher-top{
+        height:320px;
+    }
+
+}
+
+
+/* =========================
+   TEACHER INFORMATION
+========================= */
+
+.teacher-info{
+    padding:24px;
+}
+
+.teacher-info h3{
+    margin-bottom:6px;
+
+    font-size:20px;
+
+    color:#fff;
+}
+
+.teacher-role{
+    color:var(--gold);
+
+    font-size:12px;
+
+    font-weight:700;
+
+    letter-spacing:.3px;
+}
+
+.stars{
+    margin:12px 0;
+
+    color:#f4c95d;
+
+    letter-spacing:2px;
+
+    font-size:14px;
+}
+
+.teacher-info p{
+    color:var(--muted);
+
+    font-size:13px;
+
+    line-height:1.7;
+
+    margin:0;
+}
+
+
+/* =========================
+   TABLET
+========================= */
+
+@media(max-width:900px){
+
+    .teacher-grid{
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+
+        gap:18px;
+    }
+
+    .teacher-top{
+        height:240px;
+    }
+
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    .teacher-grid{
+        grid-template-columns:1fr;
+
+        gap:20px;
+    }
+
+    .teacher-top{
+        height:300px;
+    }
+
+    .teacher-info{
+        padding:22px;
+    }
+
+    .teacher-info h3{
+        font-size:19px;
+    }
+
+}
+
+
+/* =========================
+   SMALL MOBILE
+========================= */
+
+@media(max-width:380px){
+
+    .teacher-top{
+        height:270px;
+    }
+
+    .teacher-info{
+        padding:20px;
+    }
+
+}
+/* =========================
+   STATS
+========================= */
+
+.stats{
+    padding:65px 0;
+}
+
+.stats-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,minmax(0,1fr));
+
+    border:1px solid var(--border);
+
+    border-radius:25px;
+
+    background:
+        rgba(255,255,255,.035);
+
+    overflow:hidden;
+}
+
+.stat{
+    text-align:center;
+
+    padding:35px 15px;
+
+    border-right:
+        1px solid var(--border);
+}
+
+.stat:last-child{
+    border-right:0;
+}
+
+.stat h3{
+    font-size:36px;
+
+    color:var(--gold-light);
+}
+
+.stat p{
+    color:var(--muted);
+
+    margin-top:7px;
+
+    font-size:13px;
+}
+
+
+/* =========================
+   TESTIMONIAL
+========================= */
+
+.testimonial-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(3,minmax(0,1fr));
+
+    gap:22px;
+}
+
+.testimonial{
+    min-width:0;
+
+    padding:28px;
+
+    border:1px solid var(--border);
+
+    border-radius:22px;
+
+    background:
+        rgba(255,255,255,.035);
+}
+
+.quote{
+    color:var(--gold);
+
+    font-size:35px;
+}
+
+.testimonial p{
+    color:#c2d2ce;
+
+    line-height:1.8;
+
+    font-size:14px;
+
+    margin:15px 0 22px;
+}
+
+.user{
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+}
+
+.user-img{
+    width:42px;
+    height:42px;
+
+    flex-shrink:0;
+
+    border-radius:50%;
+
+    background:#16483e;
+
+    display:grid;
+
+    place-items:center;
+}
+
+.user small{
+    color:var(--muted);
+}
+
+
+/* =========================
+   CTA
+========================= */
+
+.cta-box{
+    border:
+        1px solid rgba(216,173,85,.25);
+
+    border-radius:30px;
+
+    padding:70px 30px;
+
+    text-align:center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(15,168,120,.13),
+            transparent 55%
+        ),
+        rgba(255,255,255,.035);
+}
+
+.cta-box h2{
+    font-size:clamp(30px,4vw,48px);
+
+    line-height:1.15;
+
+    margin-bottom:15px;
+}
+
+.cta-box p{
+    color:var(--muted);
+
+    max-width:650px;
+
+    margin:auto;
+
+    line-height:1.8;
+}
+
+.cta-box .hero-buttons{
+    justify-content:center;
+}
+
+
+/* =========================
+   CONTACT
+========================= */
+
+.contact-grid{
+    display:grid;
+
+    grid-template-columns:
+        minmax(0,.8fr)
+        minmax(0,1.2fr);
+
+    gap:25px;
+}
+
+.contact-info,
+.contact-form{
+    min-width:0;
+
+    padding:35px;
+
+    border:1px solid var(--border);
+
+    border-radius:24px;
+
+    background:
+        rgba(255,255,255,.035);
+}
+
+.contact-item{
+    display:flex;
+
+    gap:15px;
+
+    margin:25px 0;
+}
+
+.contact-icon{
+    min-width:48px;
+    height:48px;
+
+    border-radius:13px;
+
+    background:
+        rgba(15,168,120,.1);
+
+    display:grid;
+
+    place-items:center;
+}
+
+.contact-item h4{
+    margin-bottom:5px;
+}
+
+.contact-item p{
+    color:var(--muted);
+
+    font-size:13px;
+
+    word-break:break-word;
+}
+
+
+/* FORM */
+
+.form-grid{
+    display:grid;
+
+    grid-template-columns:
+        repeat(2,minmax(0,1fr));
+
+    gap:15px;
+}
+
+.input-group{
+    min-width:0;
+
+    margin-bottom:15px;
+}
+
+.input-group.full{
+    grid-column:1/-1;
+}
+
+.input-group label{
+    display:block;
+
+    margin-bottom:7px;
+
+    color:#b8cbc6;
+
+    font-size:12px;
+
+    font-weight:600;
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea{
+    width:100%;
+
+    max-width:100%;
+
+    border:
+        1px solid var(--border);
+
+    background:
+        rgba(0,0,0,.18);
+
+    color:white;
+
+    padding:14px;
+
+    border-radius:11px;
+
+    outline:none;
+
+    font-family:inherit;
+}
+
+.input-group select option{
+    background:#071d1a;
+
+    color:white;
+}
+
+.input-group textarea{
+    min-height:130px;
+
+    resize:vertical;
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus{
+    border-color:
+        rgba(15,168,120,.6);
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    width:100%;
+
+    background:#03100d;
+
+    border-top:
+        1px solid var(--border);
+
+    padding-top:70px;
+}
+
+.footer-grid{
+    display:grid;
+
+    grid-template-columns:
+        1.4fr 1fr 1fr 1fr;
+
+    gap:40px;
+
+    padding-bottom:50px;
+}
+
+.footer-brand p{
+    color:var(--muted);
+
+    line-height:1.8;
+
+    font-size:13px;
+
+    max-width:330px;
+
+    margin:18px 0;
+}
+
+.footer h4{
+    margin-bottom:18px;
+
+    color:white;
+}
+
+.footer ul{
+    list-style:none;
+}
+
+.footer li{
+    margin:12px 0;
+}
+
+.footer li a{
+    color:var(--muted);
+
+    font-size:13px;
+
+    transition:.3s;
+}
+
+.footer li a:hover{
+    color:var(--gold-light);
+
+    padding-left:4px;
+}
+
+.socials{
+    display:flex;
+
+    gap:9px;
+}
+
+.socials a{
+    width:38px;
+    height:38px;
+
+    border:1px solid var(--border);
+
+    border-radius:10px;
+
+    display:grid;
+
+    place-items:center;
+
+    transition:.3s;
+}
+
+.socials a:hover{
+    background:var(--green);
+
+    transform:translateY(-3px);
+}
+
+.footer-bottom{
+    border-top:
+        1px solid rgba(255,255,255,.07);
+
+    padding:22px 0;
+
+    text-align:center;
+
+    color:#748883;
+
+    font-size:12px;
+}
+
+
+/* =========================
+   BACK TO TOP
+========================= */
+
+#topBtn{
+    position:fixed;
+
+    right:22px;
+    bottom:22px;
+
+    width:45px;
+    height:45px;
+
+    border:0;
+
+    border-radius:12px;
+
+    background:var(--green);
+
+    color:white;
+
+    cursor:pointer;
+
+    display:none;
+
+    z-index:4000;
+
+    box-shadow:
+        0 10px 30px rgba(0,0,0,.3);
+}
+
+
+/* =========================
+   SCROLL REVEAL
+========================= */
+
+.reveal{
+    opacity:0;
+
+    transform:
+        translateY(35px);
+
+    transition:
+        opacity .8s ease,
+        transform .8s ease;
+}
+
+.reveal.show{
+    opacity:1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media(max-width:1100px){
+
+    .nav-links a{
+        padding:9px 9px;
+
+        font-size:13px;
+    }
+
+    .hero-grid{
+        gap:35px;
+    }
+
+    .hero h1{
+        font-size:clamp(42px,5.5vw,62px);
+    }
+
+    .course-grid{
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+    }
+
+    .footer-grid{
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+    }
+}
+
+
+/* =========================================================
+   TABLET / SMALL LAPTOP
+========================================================= */
+
+@media(max-width:900px){
+
+    .navbar{
+        padding:14px 0;
+    }
+
+    .nav-links{
+        position:absolute;
+
+        top:calc(100% + 10px);
+
+        left:4%;
+
+        width:92%;
+
+        display:none;
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+        gap:3px;
+
+        padding:12px;
+
+        background:
+            rgba(4,18,15,.97);
+
+        border:
+            1px solid var(--border);
+
+        border-radius:18px;
+
+        box-shadow:var(--shadow);
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+    .nav-links a{
+        width:100%;
+
+        padding:13px;
+    }
+
+    .nav-btn{
+        text-align:center;
+    }
+
+    .menu-btn{
+        display:block;
+    }
+
+    .hero{
+        min-height:auto;
+
+        padding-top:125px;
+    }
+
+    .hero-grid{
+        grid-template-columns:1fr;
+
+        text-align:center;
+
+        gap:20px;
+    }
+
+    .hero-content{
+        display:flex;
+
+        flex-direction:column;
+
+        align-items:center;
+    }
+
+    .hero p{
+        margin:auto;
+    }
+
+    .hero-buttons{
+        justify-content:center;
+    }
+
+    .hero-visual{
+        min-height:480px;
+
+        margin-top:10px;
+    }
+
+    .choice-grid{
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+    }
+
+    .teacher-grid{
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+    }
+
+    .testimonial-grid{
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+    }
+
+    .process-grid{
+        grid-template-columns:
+            repeat(3,minmax(0,1fr));
+
+        gap:10px;
+    }
+
+    .contact-grid{
+        grid-template-columns:1fr;
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:600px){
+
+    section{
+        padding:75px 0;
+    }
+
+    .container{
+        width:91%;
+    }
+
+
+    /* NAV */
+
+    .nav-container{
+        width:92%;
+    }
+
+    .logo-icon{
+        width:40px;
+        height:40px;
+
+        border-radius:11px;
+
+        font-size:18px;
+    }
+
+    .logo-text strong{
+        font-size:15px;
+    }
+
+    .logo-text span{
+        font-size:12px;
+    }
+
+
+    /* HERO */
+
+    .hero{
+        padding-top:115px;
+    }
+
+    .badge{
+        max-width:100%;
+
+        font-size:11px;
+
+        padding:8px 12px;
+    }
+
+    .hero-urdu{
+        font-size:24px;
+
+        margin-bottom:12px;
+    }
+
+    .hero h1{
+        font-size:
+            clamp(35px,10vw,48px);
+
+        letter-spacing:-1px;
+
+        line-height:1.08;
+
+        margin-bottom:18px;
+    }
+
+    .hero p{
+        font-size:14px;
+
+        line-height:1.8;
+    }
+
+    .hero-buttons{
+        width:100%;
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+        gap:10px;
+
+        margin-top:25px;
+    }
+
+    .hero-buttons .btn{
+        width:100%;
+    }
+
+
+    /* QURAN CARD */
+
+    .hero-visual{
+        width:100%;
+
+        min-height:430px;
+
+        padding:10px 0;
+
+        margin-top:5px;
+    }
+
+    .quran-card{
+        width:280px;
+        height:365px;
+
+        transform:rotate(2deg);
+    }
+
+    .quran-content{
+        padding:20px;
+    }
+
+    .quran-symbol{
+        width:85px;
+        height:85px;
+
+        font-size:48px;
+
+        margin-bottom:16px;
+    }
+
+    .quran-content h3{
+        font-size:36px;
+
+        margin-bottom:7px;
+    }
+
+    .quran-content p{
+        font-size:11px;
+    }
+
+
+    /* FLOAT CARDS */
+
+    .floating-card{
+        padding:12px 14px;
+
+        transform:scale(.78);
+    }
+
+    .teacher-float{
+        left:-12px;
+
+        top:55px;
+    }
+
+    .student-float{
+        right:-12px;
+
+        bottom:55px;
+    }
+
+    .float-number{
+        font-size:17px;
+    }
+
+    .float-text{
+        font-size:10px;
+    }
+
+
+    /* SECTION */
+
+    .section-head{
+        margin-bottom:40px;
+    }
+
+    .section-head h2{
+        font-size:
+            clamp(29px,8vw,38px);
+    }
+
+    .section-head p{
+        font-size:14px;
+    }
+
+
+    /* CHOICE */
+
+    .choice-grid{
+        grid-template-columns:1fr;
+
+        gap:18px;
+    }
+
+    .choice-card{
+        padding:27px 22px;
+    }
+
+    .choice-card h3{
+        font-size:22px;
+    }
+
+
+    /* COURSES */
+
+    .course-grid{
+        grid-template-columns:1fr;
+
+        gap:15px;
+    }
+
+    .course{
+        padding:24px 20px;
+    }
+
+
+    /* PROCESS */
+
+    .process-grid{
+        grid-template-columns:1fr;
+
+        gap:25px;
+    }
+
+    .process{
+        padding:10px 20px;
+    }
+
+
+    /* TEACHERS */
+
+    .teacher-grid{
+        grid-template-columns:1fr;
+
+        gap:18px;
+    }
+
+
+    /* STATS */
+
+    .stats{
+        padding:45px 0;
+    }
+
+    .stats-grid{
+        grid-template-columns:
+            repeat(2,minmax(0,1fr));
+
+        border-radius:20px;
+    }
+
+    .stat{
+        padding:25px 10px;
+
+        border-right:
+            1px solid var(--border);
+
+        border-bottom:
+            1px solid var(--border);
+    }
+
+    .stat:nth-child(2),
+    .stat:nth-child(4){
+        border-right:0;
+    }
+
+    .stat:nth-child(3),
+    .stat:nth-child(4){
+        border-bottom:0;
+    }
+
+    .stat h3{
+        font-size:28px;
+    }
+
+    .stat p{
+        font-size:11px;
+    }
+
+
+    /* TESTIMONIALS */
+
+    .testimonial-grid{
+        grid-template-columns:1fr;
+
+        gap:17px;
+    }
+
+
+    /* CTA */
+
+    .cta-box{
+        padding:50px 20px;
+
+        border-radius:22px;
+    }
+
+    .cta-box h2{
+        font-size:31px;
+    }
+
+    .cta-box p{
+        font-size:14px;
+    }
+
+
+    /* CONTACT */
+
+    .contact-info,
+    .contact-form{
+        padding:25px 20px;
+
+        border-radius:20px;
+    }
+
+    .form-grid{
+        grid-template-columns:1fr;
+
+        gap:0;
+    }
+
+    .input-group.full{
+        grid-column:auto;
+    }
+
+
+    /* FOOTER */
+
+    footer{
+        padding-top:55px;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+
+        gap:30px;
+
+        padding-bottom:35px;
+    }
+
+    .footer-brand p{
+        max-width:100%;
+    }
+
+    .footer-bottom{
+        line-height:1.8;
+
+        padding:18px 10px;
+    }
+
+
+    /* TOP BUTTON */
+
+    #topBtn{
+        right:15px;
+        bottom:15px;
+
+        width:42px;
+        height:42px;
+    }
+}
+
+
+/* =========================================================
+   VERY SMALL MOBILE
+========================================================= */
+
+@media(max-width:380px){
+
+    .logo-text strong{
+        font-size:14px;
+    }
+
+    .logo-text span{
+        font-size:10px;
+    }
+
+    .logo-icon{
+        width:37px;
+        height:37px;
+    }
+
+    .hero h1{
+        font-size:34px;
+    }
+
+    .hero-urdu{
+        font-size:22px;
+    }
+
+    .quran-card{
+        width:255px;
+        height:345px;
+    }
+
+    .quran-symbol{
+        width:78px;
+        height:78px;
+
+        font-size:43px;
+    }
+
+    .quran-content h3{
+        font-size:32px;
+    }
+
+    .quran-content p{
+        font-size:10px;
+    }
+
+    .floating-card{
+        transform:scale(.68);
+    }
+
+    .teacher-float{
+        left:-25px;
+    }
+
+    .student-float{
+        right:-25px;
+    }
+}
+
+
+/* =========================================================
+   LANDSCAPE MOBILE
+========================================================= */
+
+@media(max-height:500px) and (orientation:landscape){
+
+    .hero{
+        padding-top:100px;
+    }
+
+    .hero-grid{
+        grid-template-columns:
+            1fr 1fr;
+
+        text-align:left;
+
+        gap:25px;
+    }
+
+    .hero-content{
+        align-items:flex-start;
+    }
+
+    .hero-buttons{
+        flex-direction:row;
+    }
+
+    .hero-buttons .btn{
+        width:auto;
+    }
+
+    .hero-visual{
+        min-height:400px;
+    }
+
+    .quran-card{
+        width:250px;
+        height:320px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =========================
+     LOADER
+========================= -->
+
+<div id="loader">
+    <div class="loader-box">
+        <div class="loader-logo"><img src="images/logo.png" alt=""></div>
+        <p>AL-Saeed Academy</p>
+    </div>
+</div>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<header class="navbar" id="navbar">
+
+    <div class="nav-container">
+
+        <a href="#home" class="logo">
+
+            <div class="logo-icon">
+                <a href="images/logo.png" target="_main">
+                     <img src="images/logo.png" alt="" >
+                </a>
+            </div>
+
+            <div class="logo-text">
+                <strong>AL-Saeed Academy</strong>
+                <span>القرآن آن لائن اکیڈمی</span>
+            </div>
+
+        </a>
+
+        <button class="menu-btn" id="menuBtn">☰</button>
+
+        <ul class="nav-links" id="navLinks">
+
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#courses">Courses</a></li>
+            <li><a href="#teachers">Teachers</a></li>
+            <li><a href="#process">How It Works</a></li>
+            <li><a href="#contact">Contact</a></li>
+
+            <li>
+                <a href="#contact" class="nav-btn">
+                    Get Started
+                </a>
+            </li>
+
+        </ul>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<main>
+
+<section class="hero" id="home">
+
+<div class="container">
+
+<div class="hero-grid">
+
+<div class="hero-content reveal">
+
+<div class="badge">
+<i></i>
+Learn Quran Online • Worldwide
+</div>
+
+<div class="hero-urdu">
+قرآن سیکھیں، قرآن سکھائیں
+</div>
+
+<h1>
+Find Your Perfect
+<span>Quran Teacher.</span>
+</h1>
+
+<p>
+AL-Saeed Academy is a modern online Quran learning platform
+connecting dedicated students with qualified Quran teachers.
+Learn from home with flexible classes, trusted teachers and
+a personalized learning experience.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#teachers" class="btn btn-primary">
+👨‍🎓 Find a Teacher
+</a>
+
+<a href="#contact" class="btn btn-outline">
+👨‍🏫 Become a Teacher
+</a>
+
+</div>
+
+</div>
+
+
+<div class="hero-visual reveal">
+
+<div class="floating-card teacher-float">
+<div class="float-number">500+</div>
+<div class="float-text">Qualified Teachers</div>
+</div>
+
+<div class="quran-card">
+
+<div class="quran-content">
+<img src="images/2nd.jpg" alt="">
+
+
+
+
+<p>Learn • Read • Understand</p>
+
+</div>
+
+</div>
+
+<div class="floating-card student-float">
+<div class="float-number">10K+</div>
+<div class="float-text">Happy Students</div>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     CHOICE
+========================= -->
+
+<section id="about">
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="small">Our Platform</div>
+
+<h2>One Academy. Two Powerful Opportunities.</h2>
+
+<p>
+Whether you want to learn the Quran or share your knowledge,
+AL-Saeed Academy gives you a professional platform to grow.
+</p>
+
+</div>
+
+
+<div class="choice-grid">
+
+<div class="choice-card reveal">
+
+<div class="choice-icon">🎓</div>
+
+<h3>For Students</h3>
+
+<p>
+Find a qualified Quran teacher who matches your learning
+requirements, schedule and level.
+</p>
+
+<ul class="choice-list">
+
+<li>Experienced Quran Teachers</li>
+<li>Flexible Online Classes</li>
+<li>One-to-One Learning</li>
+<li>Kids & Adults Programs</li>
+<li>Learn From Anywhere</li>
+
+</ul>
+
+<a href="#teachers" class="btn btn-primary">
+Find Teacher →
+</a>
+
+</div>
+
+
+<div class="choice-card reveal">
+
+<div class="choice-icon">🕌</div>
+
+<h3>For Teachers</h3>
+
+<p>
+Join our growing teaching community and connect with students
+who are looking for quality Quran education.
+</p>
+
+<ul class="choice-list">
+
+<li>Build Your Teacher Profile</li>
+<li>Reach Students Worldwide</li>
+<li>Flexible Teaching Schedule</li>
+<li>Professional Platform</li>
+<li>Grow Your Online Career</li>
+
+</ul>
+
+<a href="#contact" class="btn btn-outline">
+Join As Teacher →
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     COURSES
+========================= -->
+
+<section class="courses" id="courses">
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="small">Learning Programs</div>
+
+<h2>Quran Courses For Everyone</h2>
+
+<p>
+Choose a learning path designed according to your level,
+age and goals.
+</p>
+
+</div>
+
+
+<div class="course-grid">
+
+<div class="course reveal">
+<div class="course-icon">📖</div>
+<h3>Quran Reading</h3>
+<p>
+Learn to read the Holy Quran correctly from the basics.
+</p>
+</div>
+
+<div class="course reveal">
+<div class="course-icon">🌙</div>
+<h3>Qaida & Basics</h3>
+<p>
+Perfect foundation for beginners and children.
+</p>
+</div>
+
+<div class="course reveal">
+<div class="course-icon">🎙️</div>
+<h3>Tajweed</h3>
+<p>
+Improve pronunciation and recitation with Tajweed rules.
+</p>
+</div>
+
+<div class="course reveal">
+<div class="course-icon">🧠</div>
+<h3>Hifz-ul-Quran</h3>
+<p>
+Structured memorization guidance with experienced teachers.
+</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     PROCESS
+========================= -->
+
+<section id="process">
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="small">Simple Process</div>
+
+<h2>Start Learning In 3 Easy Steps</h2>
+
+<p>
+Getting started with your Quran learning journey is simple.
+</p>
+
+</div>
+
+
+<div class="process-grid">
+
+<div class="process reveal">
+
+<div class="process-num">01</div>
+
+<h3>Choose Your Goal</h3>
+
+<p>
+Tell us whether you want Quran reading, Tajweed,
+Hifz or basic Islamic learning.
+</p>
+
+</div>
+
+
+<div class="process reveal">
+
+<div class="process-num">02</div>
+
+<h3>Find Your Teacher</h3>
+
+<p>
+Explore suitable teachers according to your
+requirements and preferred schedule.
+</p>
+
+</div>
+
+
+<div class="process reveal">
+
+<div class="process-num">03</div>
+
+<h3>Start Your Classes</h3>
+
+<p>
+Connect online and begin your personalized Quran
+learning journey from home.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     TEACHERS
+========================= -->
+
+<section class="teachers" id="teachers">
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="small">Our Teachers</div>
+
+<h2>Meet Qualified Quran Teachers</h2>
+
+<p>
+Connect with teachers dedicated to helping students improve
+their Quran reading and recitation.
+</p>
+
+</div>
+
+
+<div class="teacher-grid">
+
+<div class="teacher reveal">
+
+<div class="teacher-top"
+     style="--teacher-bg:url('images/abbas.jpg');">
+    <img src="images/abbas.jpg" alt="Muhammad Abbas">
+</div>
+
+<div class="teacher-info">
+
+<h3>Muhammad Abbas</h3>
+
+<div class="teacher-role">
+Quran & Tajweed Teacher
+</div>
+
+<div class="stars">
+★★★★★
+</div>
+
+<p>
+Experienced in Quran reading, Tajweed and beginner
+level Quran education.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="teacher reveal">
+
+<div class="teacher-top"
+     style="--teacher-bg:url('images/sohail.jpg');">
+    <img src="images/sohail.jpg" alt="Sohail Ahmad Swati">
+</div>
+
+<div class="teacher-info">
+
+<h3>Sohail Ahmad Swati</h3>
+
+<div class="teacher-role">
+Quran & Islamic Studies
+</div>
+
+<div class="stars">
+★★★★★
+</div>
+
+<p>
+Specialized in teaching Quran to children and
+ students online.
+</p>
+
+</div>
+
+</div>
+
+
+<div class="teacher reveal">
+    <div class="teacher-top"
+     style="--teacher-bg:url('images/sohail nawab.jpg');">
+    <img src="images/sohail nawab.jpg" alt="SN Khan">
+</div>
+
+
+<div class="teacher-info">
+
+<h3>SN Khan</h3>
+
+<div class="teacher-role">
+Hifz & Tajweed Specialist
+</div>
+
+<div class="stars">
+★★★★★
+</div>
+
+<p>
+Structured Hifz programs with personalized
+learning plans for students.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     STATS
+========================= -->
+
+<section class="stats">
+
+<div class="container">
+
+<div class="stats-grid reveal">
+
+<div class="stat">
+<h3 data-count="500">0</h3>
+<p>Qualified Teachers</p>
+</div>
+
+<div class="stat">
+<h3 data-count="10000">0</h3>
+<p>Students</p>
+</div>
+
+<div class="stat">
+<h3 data-count="25">0</h3>
+<p>Countries</p>
+</div>
+
+<div class="stat">
+<h3 data-count="98">0</h3>
+<p>% Satisfaction</p>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     TESTIMONIALS
+========================= -->
+
+<section>
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="small">Student Reviews</div>
+
+<h2>What Our Students Say</h2>
+
+<p>
+Real learning experiences from students and families.
+</p>
+
+</div>
+
+
+<div class="testimonial-grid">
+
+<div class="testimonial reveal">
+
+<div class="quote">“</div>
+
+<p>
+The online classes are very convenient. My son has improved
+his Quran reading significantly.
+</p>
+
+<div class="user">
+
+<div class="user-img">👤</div>
+
+<div>
+<strong>Hamid Hakim</strong><br>
+<small>Student Family</small>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="testimonial reveal">
+
+<div class="quote">“</div>
+
+<p>
+Finding a suitable teacher became very easy. The learning
+environment is comfortable and professional.
+</p>
+
+<div class="user">
+
+<div class="user-img">👤</div>
+
+<div>
+<strong>Humaira Father's</strong><br>
+<small>Quran Student</small>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="testimonial reveal">
+
+<div class="quote">“</div>
+
+<p>
+A professional platform for teachers who want to teach Quran
+online and reach students around the world.
+</p>
+
+<div class="user">
+
+<div class="user-img">👤</div>
+
+<div>
+<strong>Muhammad Aamir </strong><br>
+<small>Quran Teacher</small>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     CTA
+========================= -->
+
+<section>
+
+<div class="container">
+
+<div class="cta-box reveal">
+
+<h2>Your Quran Journey Starts Today</h2>
+
+<p>
+Whether you are searching for a teacher or looking for
+students, AL-Saeed Academy is here to connect you.
+</p>
+
+<div class="hero-buttons">
+
+<a href="#teachers" class="btn btn-primary">
+Find a Quran Teacher
+</a>
+
+<a href="#contact" class="btn btn-outline">
+Join As Teacher
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section id="contact">
+
+<div class="container">
+
+<div class="section-head reveal">
+
+<div class="small">Get In Touch</div>
+
+<h2>Let's Start Your Journey</h2>
+
+<p>
+Send us your requirements and our team will help you find
+the right learning or teaching opportunity.
+</p>
+
+</div>
+
+
+<div class="contact-grid">
+
+<div class="contact-info reveal">
+
+<h3>AL-Saeed Academy</h3>
+
+<p style="color:var(--muted);margin-top:10px;line-height:1.8;font-size:14px;">
+Connecting Quran teachers and students through a modern
+online learning experience.
+</p>
+
+
+<div class="contact-item">
+
+<div class="contact-icon">📧</div>
+
+<div>
+<h4>Email</h4>
+<p>info@shahsaeedullah28.com</p>
+</div>
+
+</div>
+
+
+<div class="contact-item">
+
+<div class="contact-icon"><i class="fab fa-whatsapp"></i></div>
+
+<div>
+<h4>WhatsApp</h4>
+<p>+92 347 1913990</p>
+</div>
+
+</div>
+
+
+<div class="contact-item">
+
+<div class="contact-icon">🌍</div>
+
+<div>
+<h4>Available Worldwide</h4>
+<p>Online Quran Education</p>
+</div>
+
+</div>
+
+</div>
+
+
+<div class="contact-form reveal">
+
+<form id="contactForm">
+
+<div class="form-grid">
+
+<div class="input-group">
+
+<label>Your Name</label>
+
+<input
+type="text"
+id="name"
+placeholder="Enter your name"
+required
+>
+
+</div>
+
+
+<div class="input-group">
+
+<label>Email</label>
+
+<input
+type="email"
+id="email"
+placeholder="Enter your email"
+required
+>
+
+</div>
+
+
+<div class="input-group">
+
+<label>I am a</label>
+
+<select id="role">
+
+<option>Student</option>
+<option>Parent</option>
+<option>Quran Teacher</option>
+
+</select>
+
+</div>
+
+
+<div class="input-group">
+
+<label>Course / Service</label>
+
+<select id="course">
+
+<option>Quran Reading</option>
+<option>Tajweed</option>
+<option>Hifz-ul-Quran</option>
+<option>Qaida</option>
+<option>Become a Teacher</option>
+
+</select>
+
+</div>
+
+
+<div class="input-group full">
+
+<label>Message</label>
+
+<textarea
+id="message"
+placeholder="Tell us what you are looking for..."
+required
+></textarea>
+
+</div>
+
+</div>
+
+<button class="btn btn-primary" type="submit">
+Send Request →
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+</main>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+<div class="container">
+
+<div class="footer-grid">
+
+<div class="footer-brand">
+
+<div class="logo">
+
+<div class="logo-icon">ق</div>
+
+<div class="logo-text">
+<strong>AL-Saeed Academy</strong>
+<span>القرآن آن لائن اکیڈمی</span>
+</div>
+
+</div>
+
+<p>
+A modern online platform connecting Quran teachers
+and students worldwide for meaningful Quran education.
+</p>
+
+<div class="socials">
+
+
+            
+                    <a href="https://www.facebook.com/shah.saeedullah" target="_blank">
+                    <i class="fab fa-facebook-f"></i>
+                      </a>
+                    <a href="#" class="instagram">
+                      <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://pk.linkedin.com/in/shah-saeedullah-88266942a?trk=people-guest_people_search-card">in</a>
+                    <a href="https://wa.me/923471913990" target="_blank" class="whatsapp">
+                    <i class="fab fa-whatsapp"></i>
+                    </a>
+                    
+                
+</div>
+
+</div>
+
+
+<div class="footer">
+
+<h4>Quick Links</h4>
+
+<ul>
+
+<li><a href="#home">Home</a></li>
+<li><a href="#about">About Academy</a></li>
+<li><a href="#courses">Courses</a></li>
+<li><a href="#teachers">Teachers</a></li>
+
+</ul>
+
+</div>
+
+
+<div class="footer">
+
+<h4>For Students</h4>
+
+<ul>
+
+<li><a href="#teachers">Find Teacher</a></li>
+<li><a href="#courses">Quran Courses</a></li>
+<li><a href="#process">How It Works</a></li>
+<li><a href="#contact">Contact Us</a></li>
+
+</ul>
+
+</div>
+
+
+<div class="footer">
+
+<h4>For Teachers</h4>
+
+<ul>
+
+<li><a href="#contact">Become a Teacher</a></li>
+<li><a href="#contact">Teacher Registration</a></li>
+<li><a href="#contact">Teacher Support</a></li>
+<li><a href="#contact">Get Started</a></li>
+
+</ul>
+
+</div>
+
+</div>
+
+
+<div class="footer-bottom">
+
+© <span id="year"></span> <strong>AL-Saeed Academy</strong>.
+All Rights Reserved.
+
+</div>
+
+</div>
+
+</footer>
+
+
+<!-- BACK TO TOP -->
+
+<button id="topBtn">↑</button>
+
+
+<script>
+
+/* =========================
+   LOADER
+========================= */
+
+window.addEventListener("load",()=>{
+
+    const loader=document.getElementById("loader");
+
+    setTimeout(()=>{
+        loader.style.opacity="0";
+
+        setTimeout(()=>{
+            loader.style.display="none";
+        },600);
+
+    },700);
+
+});
+
+
+/* =========================
+   MOBILE MENU
+========================= */
+
+const menuBtn=document.getElementById("menuBtn");
+const navLinks=document.getElementById("navLinks");
+
+menuBtn.addEventListener("click",()=>{
+
+    navLinks.classList.toggle("active");
+
+    menuBtn.textContent =
+    navLinks.classList.contains("active")
+    ? "✕"
+    : "☰";
+
+});
+
+
+/* Close menu after click */
+
+document.querySelectorAll(".nav-links a").forEach(link=>{
+
+    link.addEventListener("click",()=>{
+
+        navLinks.classList.remove("active");
+        menuBtn.textContent="☰";
+
+    });
+
+});
+
+
+/* =========================
+   NAVBAR SCROLL
+========================= */
+
+const navbar=document.getElementById("navbar");
+
+window.addEventListener("scroll",()=>{
+
+    if(window.scrollY>50){
+        navbar.classList.add("scrolled");
+    }else{
+        navbar.classList.remove("scrolled");
+    }
+
+});
+
+
+/* =========================
+   REVEAL ANIMATION
+========================= */
+
+const revealObserver=new IntersectionObserver(
+
+(entries,observer)=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            entry.target.classList.add("show");
+
+            observer.unobserve(entry.target);
+
+        }
+
+    });
+
+},
+
+{
+    threshold:.12
+}
+
+);
+
+
+document.querySelectorAll(".reveal").forEach(el=>{
+    revealObserver.observe(el);
+});
+
+
+/* =========================
+   COUNTER
+========================= */
+
+const counters=document.querySelectorAll("[data-count]");
+
+const counterObserver=new IntersectionObserver(
+
+(entries,observer)=>{
+
+    entries.forEach(entry=>{
+
+        if(entry.isIntersecting){
+
+            const counter=entry.target;
+            const target=Number(counter.dataset.count);
+
+            let current=0;
+
+            const increment=Math.max(1,Math.ceil(target/80));
+
+            const timer=setInterval(()=>{
+
+                current+=increment;
+
+                if(current>=target){
+
+                    current=target;
+                    clearInterval(timer);
+
+                }
+
+                counter.textContent=current.toLocaleString();
+
+            },20);
+
+            observer.unobserve(counter);
+
+        }
+
+    });
+
+},
+
+{
+    threshold:.5
+}
+
+);
+
+
+counters.forEach(counter=>{
+    counterObserver.observe(counter);
+});
+
+
+/* =========================
+   CONTACT FORM
+========================= */
+
+const contactForm=document.getElementById("contactForm");
+
+contactForm.addEventListener("submit",(e)=>{
+
+    e.preventDefault();
+
+    const name=document.getElementById("name").value.trim();
+
+    if(!name){
+
+        alert("Please enter your name.");
+
+        return;
+
+    }
+
+    alert(
+        `Assalam-o-Alaikum ${name}! 🌙\n\n`+
+        `Thank you for contacting AL-Saeed Academy.\n`+
+        `Our team will contact you soon.`
+    );
+
+    contactForm.reset();
+
+});
+
+
+/* =========================
+   BACK TO TOP
+========================= */
+
+const topBtn=document.getElementById("topBtn");
+
+window.addEventListener("scroll",()=>{
+
+    if(window.scrollY>500){
+
+        topBtn.style.display="block";
+
+    }else{
+
+        topBtn.style.display="none";
+
+    }
+
+});
+
+
+topBtn.addEventListener("click",()=>{
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+});
+
+
+/* =========================
+   CURRENT YEAR
+========================= */
+
+document.getElementById("year").textContent=
+new Date().getFullYear();
+
+</script>
+
+</body>
+</html>
